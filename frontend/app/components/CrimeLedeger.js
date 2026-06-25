@@ -8,7 +8,8 @@ export default function CrimeLedger({ token, refreshTrigger }) {
   useEffect(() => {
     if (!token) return;
 
-    fetch('http://127.0.0.1:8000/dashboard/stats', {
+    // 🟢 FIXED: The string syntax is now perfectly clean without markdown brackets
+    fetch('https://expert-goggles-5w57qwp7ggqf657-8000.app.github.dev/dashboard/stats', {
       headers: { 'Authorization': `Bearer ${token}` }
     })
     .then(res => res.json())

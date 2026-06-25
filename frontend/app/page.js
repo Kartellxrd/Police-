@@ -29,11 +29,13 @@ export default function AppEngine() {
       formData.append('username', username);
       formData.append('password', password);
 
-      const response = await fetch('http://127.0.0.1:8000/auth/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: formData,
-      });
+    // BEFORE: fetch('http://127.0.0.1:8000/auth/login', {
+    // AFTER:
+    const response = await fetch('https://expert-goggles-5w57qwp7ggqf657-8000.app.github.dev/auth/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: formData,
+    });
 
       if (!response.ok) {
         throw new Error('Invalid credentials or server configuration mismatch.');
@@ -53,8 +55,10 @@ export default function AppEngine() {
   useEffect(() => {
     if (!isLoggedIn || !token) return;
 
-    fetch('http://127.0.0.1:8000/dashboard/stats', {
-      headers: { 'Authorization': `Bearer ${token}` }
+// BEFORE: fetch('http://127.0.0.1:8000/dashboard/stats', {
+// AFTER:
+    fetch('https://expert-goggles-5w57qwp7ggqf657-8000.app.github.dev/dashboard/stats', {
+        headers: { 'Authorization': `Bearer ${token}` }
     })
     .then(res => res.json())
     .then(data => {

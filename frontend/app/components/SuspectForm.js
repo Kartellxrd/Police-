@@ -69,7 +69,7 @@ export default function SuspectForm({ token, onRecordAdded }) {
     setSubmitStatus({ type: 'loading', text: 'Transmitting record to national registry...' });
 
     try {
-      const response = await fetch('http://127.0.0.1:8000/crimes', {
+      const response = await fetch('(https://expert-goggles-5w57qwp7ggqf657-8000.app.github.dev/crimes', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
