@@ -2,7 +2,7 @@ from pydantic import BaseModel, Field, field_validator
 from datetime import date, datetime
 from typing import Optional
 from enum import Enum
-
+from uuid import UUID
 # --- ENUMERATION CONTROLLERS ---
 class UserRole(str, Enum):
     Desk_Officer = "Desk_Officer"
@@ -57,7 +57,7 @@ class CrimeRecordCreate(BaseModel):
     incident_station: str = Field(..., examples=["Francistown Phase IV"])
 
 class CrimeRecordResponse(BaseModel):
-    case_uuid: str
+    case_uuid: UUID
     omang_number: str
     offense_type: str
     case_narrative: str
